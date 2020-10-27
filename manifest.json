@@ -1,0 +1,20 @@
+{
+    "name": "SkyRoom Assistant",
+    "version": "1.0",
+    "description": "An Extension for SkyRoom platform",
+    "permissions": ["activeTab", "declarativeContent", "storage"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
+      "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+          "16": "icon.png",
+          "32": "icon.png",
+          "48": "icon.png",
+          "128": "icon.png"
+        }
+      },
+    "manifest_version": 2
+}
