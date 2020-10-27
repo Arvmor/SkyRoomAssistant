@@ -3,12 +3,13 @@
     src: url("./MyFont.woff2");
 }
 body {
-    margin: 0px; 
-    padding: 0px; 
+    padding: 20px 30px 20px 30px;
+    background: rgba(0,0,0,.6);
+    border-radius: 10px;
+    z-index: 10;
     box-sizing: border-box;
     font-family: 'Bardon', sans-serif;
     font-size: medium;
-    height: 200px;
-    width: 300px;
     position: relative;
+    text-align: center;
   }
