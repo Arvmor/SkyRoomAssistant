@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Bardon;
+    src: url("./MyFont.woff2");
+}
+body {
+    margin: 0px; 
+    padding: 0px; 
+    box-sizing: border-box;
+    font-family: 'Bardon', sans-serif;
+    font-size: medium;
+    height: 200px;
+    width: 300px;
+    position: relative;
+  }
