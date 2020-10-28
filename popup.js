@@ -42,13 +42,14 @@ checkBox2.onclick = function(element) {
 // first button function for auto login
 btnAutoLogin.onclick = function(element) {
 var now = new Date();
-var msTillTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), document.getElementById("hour").value, document.getElementById("minute").value, document.getElementById("second").value, 0) - now;
+var msTillTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), document.getElementById("clock").value.slice(0,2), document.getElementById("clock").value.slice(3), 0, 0) - now;
 if (msTillTime < 0) {
      msTillTime += 86400000; // it's after that time, try tomorrow.
 }
+chrome.storage.local.set({key3: `${document.getElementById("clock").value.slice(0,2)}:${document.getElementById("clock").value.slice(3)}`}, function() {});
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.executeScript(
         tabs[0].id,
-        {code: `alert("Automated Login set at ${document.getElementById("hour").value}:${document.getElementById("minute").value}:${document.getElementById("second").value}\\n${msTillTime}ms remaining\\n*Do NOT close this tab*");setTimeout(function(){document.getElementById("btn_login").click()}, ${msTillTime});`});
+        {code: `alert("Automated Login set at ${document.getElementById("clock").value.slice(0,2)}:${document.getElementById("clock").value.slice(3)}\\n${msTillTime}ms remaining\\n*Do NOT close this tab*");setTimeout(function(){document.getElementById("btn_login").click()}, ${msTillTime});`});
       });
     };

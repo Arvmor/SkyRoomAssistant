@@ -10,10 +10,9 @@
         <h3>Enable volume bars: <input type="checkbox" id="checkBox"></h3>
         <h3>Hide your login credentials:<input type="checkbox" id="checkBox2"></h3>
         <h4>Auto login at specific time:</h4>
-        <input placeholder="Hour ex: 21" id="hour">
-        <input placeholder="Minutes" id="minute">
-        <input placeholder="Seconds" id="second"><br>
-        <button id="btnAutoLogin">Auto Login</button>
+        <input type="time" id="clock" value="08:00"><br>
+        <button id="btnAutoLogin">Auto Login</button><br>
+        <span id="timeTable" style="color: white;"></span>
       </div>
       <script src="popup.js"></script>
       <script src="StorageChrome.js"></script>

@@ -8,3 +8,6 @@ chrome.storage.local.get(['key2'], function(result) {
         document.getElementById("checkBox2").checked = true;
     };
   });
+chrome.storage.local.get(['key3'], function(result) {
+    document.getElementById("timeTable").innerText = result.key3
+  });
