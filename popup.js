@@ -9,10 +9,9 @@ radioBoxLanguage1.onclick = function(element) {
     chrome.storage.local.set({key4: "English"}, function() {});}
     // alert("لطفا افزونه را بسته و باز کرده تا تغییرات اعمال شود")  
     
-    radioBoxLanguage2.onclick = function(element) {
-        chrome.storage.local.set({key4: "فارسی"}, function() {});}
-        // alert("Please reload the extension to set the changes")  
-
+radioBoxLanguage2.onclick = function(element) {
+    chrome.storage.local.set({key4: "فارسی"}, function() {});}
+    // alert("Please reload the extension to set the changes")  
 
 // first check box function for appearing volume bars
 checkBox.onclick = function(element) {
@@ -63,6 +62,6 @@ chrome.storage.local.set({key3: `${document.getElementById("clock").value.slice(
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.executeScript(
         tabs[0].id,
-        {code: `alert("Automated Login set at ${document.getElementById("clock").value.slice(0,2)}:${document.getElementById("clock").value.slice(3)}\\n${msTillTime}ms remaining\\n*Do NOT close this tab*");setTimeout(function(){document.getElementById("btn_login").click()}, ${msTillTime});`});
+        {code: `alert("Automated Login set for ${document.getElementById("clock").value.slice(0,2)}:${document.getElementById("clock").value.slice(3)}\\n*Do NOT close this tab*");setTimeout(function(){document.getElementById("btn_login").click()}, ${msTillTime});`});
       });
     };

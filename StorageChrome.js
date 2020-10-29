@@ -9,6 +9,7 @@ chrome.storage.local.get(['key2'], function(result) {
     };
   });
 chrome.storage.local.get(['key3'], function(result) {
+    document.getElementById("clock").value = result.key3
     document.getElementById("timeTable").innerText = result.key3
   });
 chrome.storage.local.get(['key4'], function(result) {
