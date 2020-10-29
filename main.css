@@ -1,10 +1,12 @@
 @font-face {
     font-family: Bardon;
-    src: url("./MyFont.woff2");
+    src: url("./Koloche.otf");
 }
 body {
     padding: 20px 30px 20px 30px;
     background: rgba(0,0,0,.6);
+    width: 300px;
+    height: 300px;
     border-radius: 10px;
     z-index: 10;
     box-sizing: border-box;
@@ -12,4 +14,58 @@ body {
     font-size: medium;
     position: relative;
     text-align: center;
+    color: rgb(195, 211, 210);
+  }
+  /* Button CSS */
+  a
+  {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 10px;
+      position: relative;
+      padding: 12px 36px;
+      margin: 10px 0;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 18px;
+      letter-spacing: 2px;
+      border-radius: 40px;
+      overflow: hidden;
+      background: linear-gradient(90deg,#3ba2ff,#3bfffd);
+  }
+  span
+  {
+      position: absolute;
+      background: #fff;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+      border-radius: 50%;
+      animation: animate 1s linear infinite;
+  }
+  @keyframes animate
+  {
+      0%
+      {
+          width: 0px;
+          height: 0px;
+          opacity: 0.5;
+      }
+      100%
+      {
+          width: 500px;
+          height: 500px;
+          opacity: 0;
+      }
+  }
+  @media (max-width: 992px) {
+    .alert-validate::before {
+      visibility: visible;
+      opacity: 1;
+    }
   }

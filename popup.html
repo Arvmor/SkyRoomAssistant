@@ -6,20 +6,21 @@
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
+    <img src="./icon.png" alt="">
       <div>
-        <input type="radio" id="language1" name="language" value="English" checked>
+        <input type="radio" id="language1" name="language" value="English" >
         <label for="English">English</label><br>
-        <input type="radio" id="language2" name="language" value="فارسی">
+        <input type="radio" id="language2" name="language" value="فارسی" checked>
         <label for="فارسی">
-          فارسی
-        </label><br>
-        <h3 id="1Text">Enable volume bars: <input type="checkbox" id="checkBox"></h3>
-        <h3 id="2Text">Hide your login credentials:<input type="checkbox" id="checkBox2"></h3>
+فارسی</label><br>
+        <h4 id="1Text">Enable volume bars:</h4> <input type="checkbox" id="checkBox">
+        <h4 id="2Text">Hide your login credentials:</h4><input type="checkbox" id="checkBox2">
         <h4 id="3Text">Auto login at specific time:</h4>
         <input type="time" id="clock" value="08:00"><br>
-        <button id="btnAutoLogin">Auto Login</button><br>
-        <span id="timeTable" style="color: white;"></span>
+        <a href="#" id="btnAutoLogin">Auto Login</a>
+        <div id="timeTable" style="color: white;"></span>
       </div>
+      <script src="btnClick.js"></script>
       <script src="popup.js"></script>
       <script src="StorageChrome.js"></script>
     </body>
