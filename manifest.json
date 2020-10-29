@@ -1,6 +1,6 @@
 {
     "name": "SkyRoom Assistant",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "description": "An Extension for SkyRoom platform",
     "permissions": ["activeTab", "declarativeContent", "storage"],
     "background": {

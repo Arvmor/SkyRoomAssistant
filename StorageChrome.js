@@ -21,5 +21,6 @@ chrome.storage.local.get(['key4'], function(result) {
     document.getElementById("1Text").innerText = ":فعال سازی نوارهای صدا";
     document.getElementById("2Text").innerText = ":پنهان سازی اطلاعات ورود شما";
     document.getElementById("3Text").innerText = ":ورود خودکار در زمان مشخص";
+    document.getElementById("btnAutoLogin").innerText = "ورود خودکار";
 };
   });
