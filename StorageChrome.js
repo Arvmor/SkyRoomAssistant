@@ -11,3 +11,14 @@ chrome.storage.local.get(['key2'], function(result) {
 chrome.storage.local.get(['key3'], function(result) {
     document.getElementById("timeTable").innerText = result.key3
   });
+chrome.storage.local.get(['key4'], function(result) {
+  if (result.key4 == "English"){
+    document.getElementById("language1").checked = true;
+};
+  if (result.key4 == "فارسی"){
+    document.getElementById("language2").checked = true;
+    document.getElementById("1Text").innerText = ":فعال سازی نوارهای صدا";
+    document.getElementById("2Text").innerText = ":پنهان سازی اطلاعات ورود شما";
+    document.getElementById("3Text").innerText = ":ورود خودکار در زمان مشخص";
+};
+  });

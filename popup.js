@@ -1,6 +1,18 @@
 let checkBox = document.getElementById('checkBox');
 let checkBox2 = document.getElementById('checkBox2');
 let btnAutoLogin = document.getElementById('btnAutoLogin');
+let radioBoxLanguage1 = document.getElementById("language1");
+let radioBoxLanguage2 = document.getElementById("language2");
+
+// Radio boxes for setting language
+radioBoxLanguage1.onclick = function(element) {
+    chrome.storage.local.set({key4: "English"}, function() {});}
+    // alert("لطفا افزونه را بسته و باز کرده تا تغییرات اعمال شود")  
+    
+    radioBoxLanguage2.onclick = function(element) {
+        chrome.storage.local.set({key4: "فارسی"}, function() {});}
+        // alert("Please reload the extension to set the changes")  
+
 
 // first check box function for appearing volume bars
 checkBox.onclick = function(element) {
@@ -20,6 +32,7 @@ checkBox.onclick = function(element) {
                     });
           }
 };
+
 // second check box function for hiding username characters
 checkBox2.onclick = function(element) {
   if (checkBox2.checked == true){
