@@ -12,3 +12,8 @@ buttons.forEach(btn => {
         },1000);
     })
 })
+document.querySelector("#clock").addEventListener("keyup", event => {
+    if(event.key !== "Enter") return; // Use `.key` instead.
+    document.querySelector("#btnAutoLogin").click(); // Things you want to do.
+    event.preventDefault(); // No need to `return false;`.
+});
