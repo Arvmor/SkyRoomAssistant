@@ -1,11 +1,21 @@
 chrome.storage.local.get(['key'], function(result) {
         if (result.key == "tick"){
         document.getElementById("checkBox").checked = true;
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+          chrome.tabs.executeScript(
+              tabs[0].id,
+              {code: 'document.getElementById("audios").classList.remove("hidden");'});
+          });
     };
   });
 chrome.storage.local.get(['key2'], function(result) {
         if (result.key2 == "tick"){
         document.getElementById("checkBox2").checked = true;
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+          chrome.tabs.executeScript(
+              tabs[0].id,
+              {code: 'document.getElementById("username").setAttribute("type", "password");'});
+            });
     };
   });
   chrome.storage.local.get(['key3'], function(result) {
