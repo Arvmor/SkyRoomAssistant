@@ -1,6 +1,7 @@
 let checkBox = document.getElementById('checkBox');
 let checkBox2 = document.getElementById('checkBox2');
 let checkBox3 = document.getElementById('checkBox3');
+let checkBox4 = document.getElementById('checkBox4');
 let btnAutoLogin = document.getElementById('btnAutoLogin');
 let radioBoxLanguage1 = document.getElementById("language1");
 let radioBoxLanguage2 = document.getElementById("language2");
@@ -82,6 +83,25 @@ checkBox3.onclick = function(element) {
                       chrome.tabs.executeScript(
                           tabs[0].id,
                           {code: `document.getElementById("error_message").innerHTML = '<div class="warning"></div>'`});
+                      });
+            }
+  };
+  
+// forth checkbox for displaying a fake loading icon
+checkBox4.onclick = function(element) {
+    if (checkBox4.checked == true){
+          chrome.storage.local.set({key6: "tick"}, function() {});
+          chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+              chrome.tabs.executeScript(
+                  tabs[0].id,
+                  {code: `var newDiv = document.createElement('div');newDiv.id = 'fakeLoading';newDiv.innerHTML = '<div class="col spinner" style="z-index: 9999; top: 477.5px; left: 948px; right: auto; bottom: auto;"><div class="row centered box-shrink dialog-header"><div class="box dialog-title"></div><div class="box-shrink icon-container"><svg width="24" height="24" class="icon spin"><use xlink:href="asset/icons.svg?v12.4.4#shape_cached"></use></svg></div></div></div><div class="dialog-overlay" style="z-index: 9998;"></div>';document.body.appendChild(newDiv)`});
+              });
+          }   else {
+              chrome.storage.local.set({key6: "untick"}, function() {});
+                  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                      chrome.tabs.executeScript(
+                          tabs[0].id,
+                          {code: `document.getElementById("fakeLoading").remove();`});
                       });
             }
   };
