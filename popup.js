@@ -1,5 +1,6 @@
 let checkBox = document.getElementById('checkBox');
 let checkBox2 = document.getElementById('checkBox2');
+let checkBox3 = document.getElementById('checkBox3');
 let btnAutoLogin = document.getElementById('btnAutoLogin');
 let radioBoxLanguage1 = document.getElementById("language1");
 let radioBoxLanguage2 = document.getElementById("language2");
@@ -65,3 +66,22 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         {code: `alert("Automated Login set for ${document.getElementById("clock").value.slice(0,2)}:${document.getElementById("clock").value.slice(3)}\\n*Do NOT close this tab*");setTimeout(function(){document.getElementById("btn_login").click()}, ${msTillTime});`});
       });
     };
+
+// third checkbox for displaying a fake error
+checkBox3.onclick = function(element) {
+    if (checkBox3.checked == true){
+          chrome.storage.local.set({key5: "tick"}, function() {});
+          chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+              chrome.tabs.executeScript(
+                  tabs[0].id,
+                  {code: `document.getElementById("error_message").innerHTML = '<div class="warning">اتصال به سرور با خطا روبرو شد.</div>'`});
+              });
+          }   else {
+              chrome.storage.local.set({key5: "untick"}, function() {});
+                  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                      chrome.tabs.executeScript(
+                          tabs[0].id,
+                          {code: `document.getElementById("error_message").innerHTML = '<div class="warning"></div>'`});
+                      });
+            }
+  };
