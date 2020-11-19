@@ -94,7 +94,7 @@ checkBox4.onclick = function(element) {
           chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
               chrome.tabs.executeScript(
                   tabs[0].id,
-                  {code: `var newDiv = document.createElement('div');newDiv.id = 'fakeLoading';newDiv.innerHTML = '<div class="col spinner" style="z-index: 9999; top: 477.5px; left: 948px; right: auto; bottom: auto;"><div class="row centered box-shrink dialog-header"><div class="box dialog-title"></div><div class="box-shrink icon-container"><svg width="24" height="24" class="icon spin"><use xlink:href="asset/icons.svg?v12.4.4#shape_cached"></use></svg></div></div></div><div class="dialog-overlay" style="z-index: 9998;"></div>';document.body.appendChild(newDiv)`});
+                  {code: `var newDiv = document.createElement('div');newDiv.id = 'fakeLoading';newDiv.innerHTML = '<div class="col spinner" style="z-index: 9999; z-index: 9999; position: fixed;top: 50%;left: 50%; margin-top: -15px;margin-left:-15px;"><div class="row centered box-shrink dialog-header"><div class="box dialog-title"></div><div class="box-shrink icon-container"><svg width="24" height="24" class="icon spin"><use xlink:href="asset/icons.svg?v12.4.4#shape_cached"></use></svg></div></div></div><div class="dialog-overlay" style="z-index: 9998;"></div>';document.body.appendChild(newDiv)`});
               });
           }   else {
               chrome.storage.local.set({key6: "untick"}, function() {});
