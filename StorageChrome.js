@@ -1,10 +1,14 @@
 chrome.storage.local.get(['key'], function(result) {
         if (result.key == "tick"){
+        document.getElementById('volumePercentDiv').hidden = false;
+        chrome.storage.local.get(['key7'], function(result) {
+          document.getElementById("volumePercent").value = result.key7;
+      });
         document.getElementById("checkBox").checked = true;
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
           chrome.tabs.executeScript(
               tabs[0].id,
-              {code: 'document.getElementById("audios").classList.remove("hidden");'});
+              {code: 'document.getElementById("audios").classList.remove("hidden");document.getElementsByTagName("audio").forEach(element => {element.volume = document.getElementById("volumePercent").value / 100;});'});
           });
     };
   });
@@ -20,7 +24,6 @@ chrome.storage.local.get(['key2'], function(result) {
   });
   chrome.storage.local.get(['key3'], function(result) {
     document.getElementById("clock").value = result.key3
-    document.getElementById("timeTable").innerText = result.key3
   });
   chrome.storage.local.get(['key4'], function(result) {
     if (result.key4 == "English"){
@@ -34,6 +37,8 @@ chrome.storage.local.get(['key2'], function(result) {
       document.getElementById("4Text").innerText = "نمایش پیغام خطای مصنوعی";
       document.getElementById("5Text").innerText = "نمایش صفحه بارگزاری تقلبی";
       document.getElementById("btnAutoLogin").innerText = "ورود خودکار";
+      document.getElementById("volumeLabel").innerText = "بلندی صدا";
+      document.getElementById("clockLabel").innerText = "ساعت";
     };
   });
 chrome.storage.local.get(['key5'], function(result) {

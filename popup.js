@@ -8,32 +8,49 @@ let radioBoxLanguage2 = document.getElementById("language2");
 
 // Radio boxes for setting language
 radioBoxLanguage1.onclick = function(element) {
-    chrome.storage.local.set({key4: "English"}, function() {});}
-    // alert("لطفا افزونه را بسته و باز کرده تا تغییرات اعمال شود")  
-    
+    chrome.storage.local.set({key4: "English"}, function() {});
+    location.reload();
+}
+// alert("لطفا افزونه را بسته و باز کرده تا تغییرات اعمال شود")  
+
 radioBoxLanguage2.onclick = function(element) {
-    chrome.storage.local.set({key4: "فارسی"}, function() {});}
+    chrome.storage.local.set({key4: "فارسی"}, function() {});
+    document.getElementById("language2").checked = true;
+    document.getElementById("1Text").innerText = "فعال سازی نوارهای صدا";
+    document.getElementById("2Text").innerText = "پنهان سازی اطلاعات ورود شما";
+    document.getElementById("3Text").innerText = "ورود خودکار در زمان مشخص";
+    document.getElementById("4Text").innerText = "نمایش پیغام خطای مصنوعی";
+    document.getElementById("5Text").innerText = "نمایش صفحه بارگزاری تقلبی";
+    document.getElementById("btnAutoLogin").innerText = "ورود خودکار";
+    document.getElementById("volumeLabel").innerText = "بلندی صدا";
+    document.getElementById("clockLabel").innerText = "ساعت";}
     // alert("Please reload the extension to set the changes")  
 
 // first check box function for appearing volume bars
 checkBox.onclick = function(element) {
   if (checkBox.checked == true){
+        document.getElementById('volumePercentDiv').hidden = false;
         chrome.storage.local.set({key: "tick"}, function() {});
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.executeScript(
                 tabs[0].id,
-                {code: 'document.getElementById("audios").classList.remove("hidden");'});
+                {code: 'document.getElementById("audios").classList.remove("hidden");document.getElementsByTagName("audio").forEach(element => {element.volume = document.getElementById("volumePercent").value / 100;});'});
             });
         }   else {
+            document.getElementById('volumePercentDiv').hidden = true;
             chrome.storage.local.set({key: "untick"}, function() {});
                 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                     chrome.tabs.executeScript(
                         tabs[0].id,
-                        {code: 'document.getElementById("audios").classList.add("hidden");'});
+                        {code: 'document.getElementById("audios").classList.add("hidden");document.getElementsByTagName("audio").forEach(element => {element.volume = 1;});'});
                     });
           }
 };
 
+// save volume percentage to google chrome storage on deselect
+document.getElementById("volumePercent").onblur = function(){
+    chrome.storage.local.set({key7: document.getElementById("volumePercent").value}, function() {});
+};
 // second check box function for hiding username characters
 checkBox2.onclick = function(element) {
   if (checkBox2.checked == true){

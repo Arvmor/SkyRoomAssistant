@@ -13,18 +13,24 @@
         <input type="radio" id="language2" name="language" value="فارسی" checked>
         <label for="فارسی">
 فارسی</label><br>
-        <input type="checkbox" id="checkBox" style="float: right; margin-top: 25px;">
-        <h4 id="1Text">Enable volume bars</h4> 
+<input type="checkbox" id="checkBox" style="float: right; margin-top: 25px;">
+<h4 id="1Text">Enable volume bars</h4> 
+<div class="form__group field" style="margin: auto;margin-top: -20px; margin-bottom: 35px;width: 40%;" id="volumePercentDiv" hidden>
+  <input type="number" id="volumePercent" min="0" max="100" step="5" class="form__field" style="font-size: 16px;" placeholder="Name"/>
+  <label for="name" class="form__label" style="font-size: 14px;" id="volumeLabel">Volume %</label>
+</div>
         <input type="checkbox" id="checkBox2" style="float: right;">
         <h4 id="2Text">Hide your login credentials</h4>
         <input type="checkbox" id="checkBox3" style="float: right;">
         <h4 id="4Text">Display a fake error</h4> 
         <input type="checkbox" id="checkBox4" style="float: right;">
-        <h4 id="5Text">Display a fake loading</h4> <br>
-        <h4 id="3Text">Auto login at specific time</h4>
-        <input type="time" id="clock" value="08:00"><br>
+        <h4 id="5Text">Display a fake loading</h4>
+        <h4 id="3Text" style="margin-top: 50px;">Auto login at specific time</h4>
+        <div class="form__group field" style="padding-top: 20px; margin: auto; margin-top: 20px;">
+          <input type="time" id="clock" value="08:00" style="font-size: 18px;" class="form__field"/>
+          <label class="form__label" style="font-size: 16px;" id="clockLabel">Clock</label>
+        </div>
         <a href="#" id="btnAutoLogin">Auto Login</a>
-        <div id="timeTable" style="color: white;"></div>
       </div>
       <script src="btnClick.js"></script>
       <script src="popup.js"></script>
