@@ -10,12 +10,14 @@ let radioBoxLanguage2 = document.getElementById("language2");
 radioBoxLanguage1.onclick = function(element) {
     chrome.storage.local.set({key4: "English"}, function() {});
     location.reload();
+    document.getElementsByTagName("body")[0].setAttribute("style", "font-family: sans-serif;");
 }
 // alert("لطفا افزونه را بسته و باز کرده تا تغییرات اعمال شود")  
 
 radioBoxLanguage2.onclick = function(element) {
     chrome.storage.local.set({key4: "فارسی"}, function() {});
     document.getElementById("language2").checked = true;
+    document.getElementsByTagName("body")[0].setAttribute("style", "font-family: 'Bardon', sans-serif;");
     document.getElementById("1Text").innerText = "فعال سازی نوارهای صدا";
     document.getElementById("2Text").innerText = "پنهان سازی اطلاعات ورود شما";
     document.getElementById("3Text").innerText = "ورود خودکار در زمان مشخص";
