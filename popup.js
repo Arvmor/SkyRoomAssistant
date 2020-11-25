@@ -34,7 +34,7 @@ checkBox.onclick = function(element) {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.executeScript(
                 tabs[0].id,
-                {code: 'document.getElementById("audios").classList.remove("hidden");document.getElementsByTagName("audio").forEach(element => {element.volume = document.getElementById("volumePercent").value / 100;});'});
+                {code: `document.getElementById("audios").classList.remove("hidden");for (let index = 0; document.getElementsByTagName("audio")[index]!='<audio id="silence" src="asset/sound/silence.mp3" loop=""></audio>'; index++) {document.getElementsByTagName("audio")[index].volume = ${document.getElementById("volumePercent").value / 100}}`});
             });
         }   else {
             document.getElementById('volumePercentDiv').hidden = true;
@@ -42,15 +42,29 @@ checkBox.onclick = function(element) {
                 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                     chrome.tabs.executeScript(
                         tabs[0].id,
-                        {code: 'document.getElementById("audios").classList.add("hidden");document.getElementsByTagName("audio").forEach(element => {element.volume = 1;});'});
+                        {code: 'document.getElementById("audios").classList.add("hidden");document.getElementsByTagName("audio").forEach(function(currentIndex) {document.getElementsByTagName("audio")[currentIndex].volume = 1;});'});
                     });
-          }
-};
-
+                }
+            };
+            
 // save volume percentage to google chrome storage on deselect
 document.getElementById("volumePercent").onblur = function(){
     chrome.storage.local.set({key7: document.getElementById("volumePercent").value}, function() {});
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.executeScript(
+                    tabs[0].id,
+                    {code: `for (let index = 0; document.getElementsByTagName("audio")[index]!='<audio id="silence" src="asset/sound/silence.mp3" loop=""></audio>'; index++) {document.getElementsByTagName("audio")[index].volume = ${document.getElementById("volumePercent").value / 100}}`});
+                });
 };
+document.getElementById("volumePercent").onchange = function(){
+    chrome.storage.local.set({key7: document.getElementById("volumePercent").value}, function() {});
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.executeScript(
+                    tabs[0].id,
+                    {code: `for (let index = 0; document.getElementsByTagName("audio")[index]!='<audio id="silence" src="asset/sound/silence.mp3" loop=""></audio>'; index++) {document.getElementsByTagName("audio")[index].volume = ${document.getElementById("volumePercent").value / 100}}`});
+                });
+};
+
 // second check box function for hiding username characters
 checkBox2.onclick = function(element) {
   if (checkBox2.checked == true){

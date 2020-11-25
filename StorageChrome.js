@@ -8,7 +8,7 @@ chrome.storage.local.get(['key'], function(result) {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
           chrome.tabs.executeScript(
               tabs[0].id,
-              {code: 'document.getElementById("audios").classList.remove("hidden");document.getElementsByTagName("audio").forEach(element => {element.volume = document.getElementById("volumePercent").value / 100;});'});
+              {code: `document.getElementById("audios").classList.remove("hidden");for (let index = 0; document.getElementsByTagName("audio")[index]!='<audio id="silence" src="asset/sound/silence.mp3" loop=""></audio>'; index++) {document.getElementsByTagName("audio")[index].volume = ${document.getElementById("volumePercent").value / 100}}`});
           });
     };
   });
