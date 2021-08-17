@@ -2,18 +2,14 @@
     "name": "SkyRoom Assistant",
     "version": "0.2.4",
     "description": "An Extension for SkyRoom platform",
-    "permissions": ["activeTab", "declarativeContent", "storage"],
+    "permissions": ["activeTab", "storage"],
     "content_scripts": [
       {
-        "matches": ["https://www.skyroom.online/*"],
+        "matches": ["<all_urls>"],
         "run_at": "document_start",
-        "js": ["StorageChrome.js"]
+        "js": ["StorageChrome.js", "popup.js"]
       }],
-    "background": {
-        "scripts": ["background.js"],
-        "persistent": false
-      },
-      "page_action": {
+      "browser_action": {
         "default_popup": "popup.html",
         "default_icon": {
           "16": "icon.png",
