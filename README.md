@@ -1,7 +1,8 @@
 # SkyRoomAssistant
+<a href="https://chrome.google.com/webstore/detail/skyroom-assistant/ljdankmhmhhaadaidbaddioidnfdikdg">**Download**</a> **From Chrome WebStore** <br>
 A Chrome Extension for SkyRoom streaming platform <br>
+
 <img src="img/chromePage.PNG">
-**Only works on https://www.skyroom.online domain**
 
 ### Options
 - Login automation (at a specific time)
