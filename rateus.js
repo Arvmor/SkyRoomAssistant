@@ -1,5 +1,9 @@
 let rateValue = document.getElementById("rateValue");
 
+document.getElementById("rateImage").onclick = function(element) {
+    window.open('https://chrome.google.com/webstore/detail/skyroom-assistant/ljdankmhmhhaadaidbaddioidnfdikdg/reviews')
+  }
+  
 window.onload = function(){
     chrome.storage.local.get(['key8'], function(result) {
         chrome.storage.local.get(['key9'], function(result2) {
