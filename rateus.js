@@ -1,13 +1,18 @@
 let rateValue = document.getElementById("rateValue");
 
 window.onload = function(){
-    chrome.storage.local.get(['key7'], function(result) {
-        result.key7 = Number(result.key7) + 1
-        chrome.storage.local.set({key7:  Number(result.key7)}, function() {});
-        document.getElementById("rateValue").innerText = Number(result.key7);
-        if (Number(result.key7)==10){
-            chrome.storage.local.set({key7:  0}, function() {});
-            alert("rate me")
-        }
+    chrome.storage.local.get(['key8'], function(result) {
+        chrome.storage.local.get(['key9'], function(result2) {
+            if(result2.key9 == undefined){
+                chrome.storage.local.set({key9:  false}, function() {});
+                chrome.storage.local.set({key8:  0}, function() {});
+            }
+            result.key8 = Number(result.key8) + 1
+            chrome.storage.local.set({key8:  Number(result.key8)}, function() {});
+            document.getElementById("rateValue").innerText = Number(result.key8);
+            if (Number(result.key8)>=20 && result2.key9 != true){
+                window.location = "rateus.html";
+            }
+        });
     });
 }
