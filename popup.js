@@ -5,6 +5,7 @@ let checkBox4 = document.getElementById('checkBox4');
 let btnAutoLogin = document.getElementById('btnAutoLogin');
 let radioBoxLanguage1 = document.getElementById("language1");
 let radioBoxLanguage2 = document.getElementById("language2");
+var _AnalyticsCode = "UA-208866063-1";
 
 // Radio boxes for setting language
 radioBoxLanguage1.onclick = function(element) {
@@ -138,3 +139,48 @@ checkBox4.onclick = function(element) {
                       });
             }
   };
+
+//  /**
+//   * Below is a modified version of the Google Analytics asynchronous tracking
+//   * code snippet.  It has been modified to pull the HTTPS version of ga.js
+//   * instead of the default HTTP version.  It is recommended that you use this
+//   * snippet instead of the standard tracking snippet provided when setting up
+//   * a Google Analytics account.
+//   */
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', _AnalyticsCode]);
+ _gaq.push(['_trackPageview']);
+ 
+ (function() {
+   var ga = document.createElement('script');
+   ga.type = 'text/javascript';
+   ga.async = true;
+   ga.src = 'https://www.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0];
+   s.parentNode.insertBefore(ga, s);
+ })();
+ 
+//  /**
+//   * Track a click on a button using the asynchronous tracking API.
+//   *
+//   * See http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html
+//   * for information on how to use the asynchronous tracking API.
+//   */
+ function trackButtonClick(e) {
+   _gaq.push(['_trackEvent', e.target.id, 'clicked']);
+ }
+ 
+//  /**
+//   * Now set up your event handlers for the popup's `button` elements once the
+//   * popup's DOM has loaded.
+//   */
+ document.addEventListener('DOMContentLoaded', function () {
+    var inputsTrack = document.querySelectorAll('input');
+    for (var i = 0; i < inputsTrack.length; i++) {
+      inputsTrack[i].addEventListener('click', trackButtonClick);
+    }
+    var buttonsTrack = document.querySelectorAll('a');
+    for (var i = 0; i < buttonsTrack.length; i++) {
+      buttonsTrack[i].addEventListener('click', trackButtonClick);
+    }
+ });
