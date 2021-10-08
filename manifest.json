@@ -1,6 +1,6 @@
 {
     "name": "SkyRoom Assistant",
-    "version": "0.2.9",
+    "version": "0.2.9.1",
     "description": "An Extension for SkyRoom platform",
     "permissions": ["activeTab", "storage"],
     "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",

