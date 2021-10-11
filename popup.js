@@ -157,6 +157,7 @@ checkBox4.onclick = function(element) {
 //   * a Google Analytics account.
 //   */
  var _gaq = _gaq || [];
+ _gaq.push(['_gat._forceSSL']);
  _gaq.push(['_setAccount', _AnalyticsCode]);
  _gaq.push(['_trackPageview']);
  
